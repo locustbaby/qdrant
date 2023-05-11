@@ -3841,6 +3841,7 @@
           },
           "quantization_config": {
             "description": "Custom params for quantization. If none - values from collection configuration are used.",
+            "default": null,
             "anyOf": [
               {
                 "$ref": "#/components/schemas/QuantizationConfig"
@@ -5190,7 +5191,7 @@
           },
           "shard_number": {
             "description": "Number of shards in collection. Default is 1 for standalone, otherwise equal to the number of nodes Minimum is 1",
-            "default": null,
+            "default": 1,
             "type": "integer",
             "format": "uint32",
             "minimum": 0,
@@ -5198,7 +5199,7 @@
           },
           "replication_factor": {
             "description": "Number of shards replicas. Default is 1 Minimum is 1",
-            "default": null,
+            "default": 1,
             "type": "integer",
             "format": "uint32",
             "minimum": 0,
@@ -5206,7 +5207,7 @@
           },
           "write_consistency_factor": {
             "description": "Defines how many replicas should apply the operation for us to consider it successful. Increasing this number will make the collection more resilient to inconsistencies, but will also make it fail if not enough replicas are available. Does not have any performance impact.",
-            "default": null,
+            "default": 1,
             "type": "integer",
             "format": "uint32",
             "minimum": 0,
@@ -5214,7 +5215,7 @@
           },
           "on_disk_payload": {
             "description": "If true - point's payload will not be stored in memory. It will be read from the disk every time it is requested. This setting saves RAM by (slightly) increasing the response time. Note: those payload values that are involved in filtering and are indexed - remain in RAM.",
-            "default": null,
+            "default": false,
             "type": "boolean",
             "nullable": true
           },
